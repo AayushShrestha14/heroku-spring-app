@@ -50,6 +50,6 @@ public class ContactController {
     @GetMapping(value = "/admin")
     public String admin(Model model){
         model.addAttribute("contacts", repository.findAll());
-        return "contacts/admin/index";
+        return "contact/admin/index";
     }
 }
