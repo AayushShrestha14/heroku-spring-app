@@ -6,18 +6,38 @@
 package com.cibt.web.entity;
 
 import java.util.Date;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
  * @author apple
  */
+@Entity
+@Table(name = "tbl_contacts")
 public class Contact {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private int id;
+    @Column(name = "name")
     private String name;
+    @Column(name = "email")
     private String email;
+    @Column(name = "subject")
     private String subject;
+    @Column(name = "body")
     private String body;
+    @Column(name = "contact_date",insertable = false)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date sendDate;
+    @Column(name = "is_read")
     private boolean read;
 
     public Contact() {
