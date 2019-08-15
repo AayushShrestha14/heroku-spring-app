@@ -38,13 +38,8 @@ public class ContactController {
     @PostMapping
     @ResponseBody
     public String save(@ModelAttribute(value = "Contact")Contact contact){
-        String data="<h1>Your Details</h1>";
-        data += "<br/>name:" + contact.getName();
-        data += "</br>Email:" + contact.getEmail();
-        data += "</br>Subject:" + contact.getSubject();
-        data += "</br>Message:" + contact.getBody();
-        return data;
-        
+        repository.save(contact);
+        return "<h1>Thank you for Contacting Us.</h1>";
     }
     
     @GetMapping(value = "/admin")
